@@ -1,7 +1,7 @@
 const { db } = require("..");
 
-function getRawImages(_req, res) {
+function getRawImage(_req, res) {
   // TODO
 }
 
-module.exports = getRawImages;
+module.exports = getRawImage;
