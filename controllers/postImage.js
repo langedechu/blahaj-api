@@ -1,6 +1,6 @@
 const model = require("../model/model");
 
-function postImages(req, res) {
+function postImage(req, res) {
   const image = new model({
     name: req.body.name,
     url: req.body.url,
@@ -14,4 +14,4 @@ function postImages(req, res) {
   });
 }
 
-module.exports = postImages;
+module.exports = postImage;
