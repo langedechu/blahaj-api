@@ -1,10 +1,9 @@
-const {
-  getImages,
-  postImages,
-  getRawImages,
-} = require("../controllers/controllers.js");
+const { Router } = require("express");
+const router = Router();
 
-const router = require("express").Router();
+const getRawImages = require("../controllers/getRawImages.js");
+const getImages = require("../controllers/getImages.js");
+const postImages = require("../controllers/postImages.js");
 
 router.post("/post", postImages);
 router.get("/get", getImages);
