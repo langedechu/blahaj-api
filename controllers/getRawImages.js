@@ -1,14 +1,7 @@
-const model = require("../model/model.js");
-const randomObject = require("../utils/randomObject.js");
+const { db } = require("../");
 
 function getRawImages(_req, res) {
-  model.find((err, images) => {
-    if (err) {
-      res.err(err);
-    } else {
-      res.redirect(randomObject(images)["url"]);
-    }
-  });
+  // TODO
 }
 
 module.exports = getRawImages;
