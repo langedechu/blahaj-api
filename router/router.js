@@ -1,12 +1,12 @@
 const { Router } = require("express");
 const router = Router();
 
-const getRawImages = require("../controllers/getRawImages.js");
-const getImages = require("../controllers/getImage.js");
-const postImages = require("../controllers/postImage.js");
+const getRawImage = require("../controllers/getRawImages.js");
+const getImage = require("../controllers/getImage.js");
+const postImage = require("../controllers/postImage.js");
 
-router.post("/post", postImages);
-router.get("/get", getImages);
-router.get("/raw", getRawImages);
+router.post("/post", postImage);
+router.get("/get", getImage);
+router.get("/raw", getRawImage);
 
 module.exports = router;
