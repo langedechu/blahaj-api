@@ -5,10 +5,11 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
+// Express app
 const router = require("./router/router.js");
-
 const app = express();
 
+// MySQL connection
 try {
   const connection = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -30,21 +31,13 @@ try {
   throw _error;
 }
 
+// Middlewares
 app.use(cors());
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
 app.use(express.static("views"));
-
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "static/index.html"));
-});
-
 app.use(router);
 
-const port = process.env.PORT || 3000;
-
-app.listen(port, async () => {
-  console.log(`Server is online at ${port} port`);
+app.listen(parseInt(process.env.APP_PORT), async () => {
+  console.log(`Express > Listening on port ${port}.`);
 });
