@@ -1,22 +1,21 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const dotenv = require("dotenv")
+const dotenv = require("dotenv");
 
-
-dotenv.config()
+dotenv.config();
 
 const router = require("./router/router.js");
 
 const app = express();
 
 mongoose
-    .connect(process.env.MONGODB_URL, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
-    .then(() => console.log("Connected to the database"))
-    .catch((err) => console.log(err))
+  .connect(process.env.MONGODB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Connected to the database"))
+  .catch((err) => console.log(err));
 
 app.use(cors());
 
@@ -25,14 +24,14 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static("views"));
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'static/index.html'))
-})
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "static/index.html"));
+});
 
 app.use(router);
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 
 app.listen(port, async () => {
-    console.log(`Server is online at ${port} port`);
+  console.log(`Server is online at ${port} port`);
 });
