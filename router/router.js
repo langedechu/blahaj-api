@@ -2,7 +2,7 @@ const { Router } = require("express");
 const router = Router();
 
 const getRawImages = require("../controllers/getRawImages.js");
-const getImages = require("../controllers/getImages.js");
+const getImages = require("../controllers/getImage.js");
 const postImages = require("../controllers/postImages.js");
 
 router.post("/post", postImages);
