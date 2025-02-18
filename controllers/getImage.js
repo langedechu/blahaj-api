@@ -13,7 +13,7 @@ function getImage(_req, res) {
 
   db.query(query, (err, results) => {
     if (err) {
-      res.status(500).json({ error: "Internal server error" });
+      res.status(500).json({ error: "Internal server error." });
       return;
     }
 

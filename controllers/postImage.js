@@ -1,16 +1,23 @@
-const model = require("../model/model");
+const { db } = require("../");
 
+/**
+ * Post an image entry to the database.
+ * @param {import("express").Request} req
+ * @param {import("express").Response} res
+ */
 function postImage(req, res) {
-  const image = new model({
-    name: req.body.name,
-    url: req.body.url,
+  const query = db.createQuery({
+    sql: "INSERT INTO images (url, name) VALUES (?, ?)",
+    values: [req.query.url, req.query.name],
   });
 
-  image.save((err, image) => {
+  db.query(query, (err, _results) => {
     if (err) {
-      res.send(err);
+      res.status(500).json({ error: "Internal server error." });
+      return;
     }
-    res.json(image);
+
+    res.status(200).json({ message: "Image posted." });
   });
 }
 
