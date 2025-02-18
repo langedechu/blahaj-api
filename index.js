@@ -1,5 +1,5 @@
 const express = require("express");
-const mongoose = require("mongoose");
+const mysql = require("mysql");
 const cors = require("cors");
 const dotenv = require("dotenv");
 
@@ -9,13 +9,26 @@ const router = require("./router/router.js");
 
 const app = express();
 
-mongoose
-  .connect(process.env.MONGODB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Connected to the database"))
-  .catch((err) => console.log(err));
+try {
+  const connection = mysql.createConnection({
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+  });
+
+  connection.connect((_err) => {
+    if (_err) {
+      console.error(_err);
+      throw _err;
+    }
+    console.log("MySQL > Connected to the database");
+  });
+} catch (_error) {
+  console.error(_error);
+  throw _error;
+}
 
 app.use(cors());
 
