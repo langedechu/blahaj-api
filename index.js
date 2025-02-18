@@ -27,6 +27,8 @@ try {
     }
     console.log("MySQL > Connected to the database");
   });
+
+  module.exports.db = connection;
 } catch (_error) {
   console.error(_error);
   throw _error;
