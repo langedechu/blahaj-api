@@ -1,28 +1,30 @@
-# 🦈 Blahaj API
+# 🦈 Blahaj API - Reloaded
 
-An API for getting and posting random Blahaj images
+An API for getting and posting random Blahaj images.
 
-## 👨‍💻 Demo
+## 👨‍💻 Original author
 
-Check out the website: [Blahaj API](https://blahaj-api.herokuapp.com/)
+Check out the original author: [Blahaj API](https://github.com/0xMukesh/Blahaj-API)
 
 ## 🛣️ Available endpoints
 
-- `/`: The root route
-- `/get`: The route for getting random blahaj images
-- `/post`: The route for posting random blahaj images
-- `/raw`: The route for getting raw random blahaj images
+- `/`: API's root.
+- `/get`: Get a random blahaj image.
+- `/post`: Posting a random blahaj image.
+- `/raw`: Get a random blahaj images (Raw data).
 
 ### 🤔 How to post via the `/post` route ?
 
-Blahaj API doesn't support posting via queries. To use the POST method you have to add body to the request. The body needs to have `name` and `url` path.
+You can post a random image of blahaj by sending a POST request to the `/post` route with the following query parameters:
 
-- `name` : It's a short description of what's the image is about
-- `url` : It's the link of the image
+- `url`: The URL of the image you want to post.
+- `name`: A quick label for the image.
 
-Here's an example 👇
+Here is an example of how you can post an image using the `/post` route:
 
-![](https://imgur.com/CGTREJx.png)
+```
+curl -X POST https://127.0.0.1:3000/post?url=https://example.com/image.jpg&name=This%20is%20a%20cool%20image
+```
 
 ## 👇 Prerequisites
 
@@ -30,21 +32,14 @@ Before starting working on this project, please make sure you have already insta
 
 - [Git](https://git-scm.com/downloads)
 - [NodeJS](https://nodejs.org/en/download/)
-- [MongoDB Compass](https://www.mongodb.com/try/download/compass)
+- [MySQL](https://www.mysql.com/downloads/)
 
 ## 🛠️ Installation Steps
 
-1. Fork the project
-2. Clone the project, by using the following command
-
-   ```bash
-   $ git clone https://github.com/Kira272921/Blahaj-API
-   ```
-
-3. Navigate to the project directory `cd Blahaj-API`
-4. Install dependencies with `npm install`
-5. Create your [own MongoDB database](https://www.mongodb.com/basics/create-database) for testing
-6. Run `npm start` to start a local development environment
+1. Fork the project and clone it locally.
+2. Install dependencies with `npm install`.
+3. Use the SQL template file to create the database and tables.
+4. Run `npm start` to start the server.
 
 ## 👨‍💻 Contributing
 
