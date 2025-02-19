@@ -11,28 +11,23 @@ const router = require("./router/router.js");
 const app = express();
 
 // MySQL connection
-try {
-  const connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
-  });
+const connection = mysql.createConnection({
+  host: process.env.MYSQL_HOST,
+  port: process.env.MYSQL_PORT,
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DATABASE,
+});
 
-  connection.connect((_err) => {
-    if (_err) {
-      console.error(_err);
-      throw _err;
-    }
-    console.log("MySQL > Connected to the database");
-  });
+connection.connect((_err) => {
+  if (_err) {
+    console.error(_err);
+    throw _err;
+  }
+  console.log("MySQL > Connected to the database");
 
   module.exports.db = connection;
-} catch (_error) {
-  console.error(_error);
-  throw _error;
-}
+});
 
 // Middlewares
 app.use(cors());
@@ -42,5 +37,5 @@ app.use(express.static("views"));
 app.use(router);
 
 app.listen(parseInt(process.env.APP_PORT), async () => {
-  console.log(`Express > Listening on port ${port}.`);
+  console.log(`Express > Listening on port ${process.env.APP_PORT}.`);
 });
