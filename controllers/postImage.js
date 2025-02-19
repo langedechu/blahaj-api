@@ -6,19 +6,20 @@
 function postImage(req, res) {
   const { db } = require("../");
 
-  const query = db.createQuery({
-    sql: "INSERT INTO images (url, name) VALUES (?, ?)",
-    values: [req.query.url, req.query.name],
-  });
+  db.query(
+    {
+      sql: "INSERT INTO images (url, name) VALUES (?, ?)",
+      values: [req.query.url, req.query.name],
+    },
+    (err, _results) => {
+      if (err) {
+        res.status(500).json({ error: "Internal server error." });
+        return;
+      }
 
-  db.query(query, (err, _results) => {
-    if (err) {
-      res.status(500).json({ error: "Internal server error." });
-      return;
+      res.status(200).json({ message: "Image posted." });
     }
-
-    res.status(200).json({ message: "Image posted." });
-  });
+  );
 }
 
 module.exports = postImage;
