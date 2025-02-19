@@ -11,7 +11,7 @@ Check out the original author: [Blahaj API](https://github.com/0xMukesh/Blahaj-A
 - `/`: API's root.
 - `/get`: Get a random blahaj image.
 - `/post`: Posting a random blahaj image.
-- `/raw`: Get a random blahaj images (Raw data).
+- `/raw`: Get a random blahaj image (Raw data).
 
 ### 🤔 How to post via the `/post` route ?
 
