@@ -1,10 +1,6 @@
-# 🦈 Blahaj API - Reloaded
+# 🦈 Blahaj API
 
 An API for getting and posting random Blahaj images.
-
-## 👨‍💻 Original author
-
-Check out the original author: [Blahaj API](https://github.com/0xMukesh/Blahaj-API)
 
 ## 🛣️ Available endpoints
 
