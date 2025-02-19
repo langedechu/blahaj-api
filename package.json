@@ -10,12 +10,9 @@
     "@types/express": "^5.0.0",
     "@types/mysql": "^2.15.26",
     "cors": "^2.8.5",
-    "dotenv": "^12.0.3",
-    "express": "^4.17.2",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "mysql": "^2.18.1"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.15"
   },
   "keywords": [],
   "author": "",
