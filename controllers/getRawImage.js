@@ -1,6 +1,6 @@
-const { db } = require("..");
-
 function getRawImage(_req, res) {
+  const { db } = require("..");
+
   // TODO
 }
 
